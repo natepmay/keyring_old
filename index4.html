@@ -1,0 +1,494 @@
+<!-- Okay. Got to position a parent element as relative (because that affects the children) and position all the children as absolute. -->
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://use.typekit.net/sqx4imi.css">
+  <link rel="stylesheet" type="text/css" href="style2.css">
+  <title>Keyring Tool</title>
+  <svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <svg id="icon_trash">
+        <g>
+          <path d="M32,72.47l31.04,155.18c0.56,2.8,3.02,4.82,5.88,4.82h118.16c2.86,0,5.32-2.02,5.88-4.82L224,72.47H32z
+             M88.07,206.47C88.07,206.47,88.07,206.47,88.07,206.47c-3.32,0-6-2.68-6.01-5.99l-0.13-96.06c0-3.31,2.68-6,5.99-6.01
+            c0,0,0.01,0,0.01,0c3.31,0,6,2.68,6,5.99l0.13,96.06C94.07,203.77,91.38,206.47,88.07,206.47z M128.07,206.47
+            C128.07,206.47,128.07,206.47,128.07,206.47c-3.32,0-6-2.68-6.01-5.99l-0.13-96.06c0-3.31,2.68-6,5.99-6.01c0,0,0.01,0,0.01,0
+            c3.31,0,6,2.68,6,5.99l0.13,96.06C134.07,203.77,131.38,206.47,128.07,206.47z M168.07,206.47
+            C168.07,206.47,168.07,206.47,168.07,206.47c-3.32,0-6-2.68-6.01-5.99l-0.13-96.06c0-3.31,2.68-6,5.99-6.01c0,0,0.01,0,0.01,0
+            c3.31,0,6,2.68,6,5.99l0.13,96.06C174.07,203.77,171.38,206.47,168.07,206.47z"/>
+          <path d="M187.08,232.97H68.92c-3.09,0-5.77-2.2-6.37-5.22L31.51,72.57c-0.03-0.15,0.01-0.3,0.1-0.42
+            c0.09-0.12,0.24-0.18,0.39-0.18h192c0.15,0,0.29,0.07,0.39,0.18c0.09,0.12,0.13,0.27,0.1,0.42l-31.04,155.18
+            C192.85,230.77,190.17,232.97,187.08,232.97z M32.61,72.97l30.92,154.58c0.51,2.56,2.78,4.42,5.39,4.42h118.16
+            c2.61,0,4.88-1.86,5.39-4.42l30.92-154.58H32.61z M168.07,206.97C168.07,206.97,168.07,206.97,168.07,206.97L168.07,206.97
+            c-3.59,0-6.5-2.91-6.51-6.49l-0.13-96.06c0-3.58,2.91-6.5,6.49-6.51c3.59,0,6.5,2.91,6.51,6.49l0.13,96.06
+            c0,1.74-0.67,3.37-1.9,4.6C171.44,206.29,169.81,206.97,168.07,206.97z M167.94,98.91c-1.48,0-2.86,0.58-3.89,1.62
+            c-1.04,1.04-1.61,2.42-1.61,3.89l0.13,96.06c0,3.03,2.47,5.49,5.5,5.49l0.01,0.5l0-0.5c1.47,0,2.85-0.58,3.89-1.62
+            c1.04-1.04,1.61-2.42,1.61-3.89l-0.13-96.06C173.43,101.37,170.97,98.91,167.94,98.91z M128.07,206.97
+            C128.07,206.97,128.07,206.97,128.07,206.97L128.07,206.97c-3.59,0-6.5-2.91-6.51-6.49l-0.13-96.06c0-1.74,0.67-3.37,1.9-4.6
+            c1.23-1.23,2.86-1.91,4.59-1.91c3.59,0,6.5,2.91,6.51,6.49l0.13,96.06c0,1.74-0.67,3.37-1.9,4.6
+            C131.44,206.29,129.81,206.97,128.07,206.97z M127.94,98.91c-1.48,0-2.86,0.58-3.89,1.62c-1.04,1.04-1.61,2.42-1.61,3.89
+            l0.13,96.06c0,3.03,2.47,5.49,5.5,5.49l0.01,0.5l0-0.5c3.03,0,5.5-2.47,5.49-5.51l-0.13-96.06
+            C133.43,101.37,130.97,98.91,127.94,98.91z M88.07,206.97C88.07,206.97,88.07,206.97,88.07,206.97L88.07,206.97
+            c-3.59,0-6.5-2.91-6.51-6.49l-0.13-96.06c0-1.74,0.67-3.37,1.9-4.6c1.23-1.23,2.86-1.91,4.59-1.91c3.59,0,6.5,2.91,6.51,6.49
+            l0.13,96.06c0,1.74-0.67,3.37-1.9,4.6C91.44,206.29,89.81,206.97,88.07,206.97z M87.94,98.91c-3.04,0-5.5,2.47-5.5,5.51
+            l0.13,96.06c0,3.03,2.47,5.49,5.5,5.49l0.01,0.5l0-0.5c1.47,0,2.85-0.58,3.89-1.62c1.04-1.04,1.61-2.42,1.61-3.89l-0.13-96.06
+            C93.43,101.37,90.97,98.91,87.94,98.91z"/>
+          <path class="st5" d="M226.68,39.93h-67.29c-1.54-12.56-15-22.4-31.33-22.4c-16.32,0-29.78,9.84-31.32,22.4H28c-3.31,0-6,2.68-6,6
+            v14h210.68v-14C232.68,42.61,230,39.93,226.68,39.93z M128.06,29.53c9.3,0,17.33,4.56,19.11,10.4h-38.21
+            C110.74,34.09,118.76,29.53,128.06,29.53z"/>
+        </g>
+      </svg>
+      <svg id="icon_rotate-counter">
+        <g>
+          <path d="M29.98,110.52c-1.51,2.16-1.08,5.13,0.99,6.76c5.25,4.13,9.9,8.87,13.88,14.14
+        		c6.68,8.87,12.91,28.47,15.94,38.98c0.96,3.33,4.93,4.69,7.74,2.65c8.54-6.2,24.88-17.46,38.13-23.08c6.05-2.57,12.42-4.34,19-5.3
+        		c2.64-0.39,4.55-2.72,4.32-5.38v0c-0.25-2.88-2.87-4.94-5.73-4.52c-7.44,1.08-14.65,3.09-21.5,5.99c-3.17,1.35-6.15,2.83-8.96,4.43
+        		c-4.32,2.45-9.13-2.21-6.9-6.65c10.91-21.67,33.37-36.57,59.24-36.57c34.99,0,63.73,27.26,66.12,61.64
+        		c0.18,2.61,2.36,4.64,4.98,4.64H227c3,0,5.3-2.62,4.97-5.6c-5.12-46.37-43.61-80.9-85.83-80.68
+        		c-32.82,0.17-63.62,21.31-77.75,53.39c-1.69,3.83-7.08,3.95-8.99,0.23c-0.32-0.62-0.65-1.24-1.01-1.88
+        		c-0.59-1.06-2.46-4.22-5.56-8.33c-4.48-5.93-9.72-11.28-15.62-15.94C34.94,107.68,31.63,108.15,29.98,110.52L29.98,110.52z"/>
+        </g>
+      </svg>
+      <svg id="icon_rotate-clock">
+        <g>
+        	<path d="M228.56,110.52c1.51,2.16,1.08,5.13-0.99,6.76c-5.25,4.13-9.9,8.87-13.88,14.14
+        		c-6.68,8.87-12.91,28.47-15.94,38.98c-0.96,3.33-4.93,4.69-7.74,2.65c-8.54-6.2-24.88-17.46-38.13-23.08
+        		c-6.05-2.57-12.42-4.34-19-5.3c-2.64-0.39-4.55-2.72-4.32-5.38v0c0.25-2.88,2.87-4.94,5.73-4.52c7.44,1.08,14.65,3.09,21.5,5.99
+        		c3.17,1.35,6.15,2.83,8.96,4.43c4.32,2.45,9.13-2.21,6.9-6.65c-10.91-21.67-33.37-36.57-59.24-36.57
+        		c-34.99,0-63.73,27.26-66.12,61.64c-0.18,2.61-2.36,4.64-4.98,4.64h-9.76c-3,0-5.3-2.62-4.97-5.6
+        		c5.12-46.37,43.61-80.9,85.83-80.68c32.82,0.17,63.62,21.31,77.75,53.39c1.69,3.83,7.08,3.95,8.99,0.23
+        		c0.32-0.62,0.65-1.24,1.01-1.88c0.59-1.06,2.46-4.22,5.56-8.33c4.48-5.93,9.72-11.28,15.62-15.94
+        		C223.6,107.68,226.91,108.15,228.56,110.52L228.56,110.52z"/>
+        </g>
+      </svg>
+      <svg id="icon_box-unchecked">
+        <g>
+          <path d="M173.54,176.67H82.33c-1.66,0-3-1.34-3-3V82.46c0-1.66,1.34-3,3-3h91.22c1.66,0,3,1.34,3,3v91.22
+            C176.54,175.33,175.2,176.67,173.54,176.67z M97.33,161.67h61.22c1.66,0,3-1.34,3-3V97.46c0-1.66-1.34-3-3-3H97.33
+            c-1.66,0-3,1.34-3,3v61.22C94.33,160.33,95.67,161.67,97.33,161.67z"/>
+        </g>
+      </svg>
+      <svg id="icon_box-checked">
+        <g>
+      		<path d="M118.45,158.12l-21.45-21.45c-1.17-1.17-1.17-3.07,0-4.24l6.36-6.37c1.17-1.17,3.07-1.17,4.24,0l10.93,10.93
+      			c1.16,1.16,3.05,1.17,4.22,0.02l41.17-40.52c1.18-1.16,3.08-1.15,4.24,0.03l6.31,6.42c1.16,1.18,1.15,3.08-0.03,4.24l-51.78,50.96
+      			C121.51,159.3,119.62,159.29,118.45,158.12z"/>
+      		<path d="M173.54,176.67H82.33c-1.66,0-3-1.34-3-3V82.46c0-1.66,1.34-3,3-3h83.71c1.66,0,3,1.34,3,3v9
+      			c0,1.66-1.34,3-3,3H97.33c-1.66,0-3,1.34-3,3v61.21c0,1.66,1.34,3,3,3h61.21c1.66,0,3-1.34,3-3v-36.2c0-1.66,1.34-3,3-3h9
+      			c1.66,0,3,1.34,3,3v51.2C176.54,175.33,175.2,176.67,173.54,176.67z"/>
+        </g>
+      </svg>
+      <svg id="icon_eye-open">
+        <g>
+          <path d="M240,112.01c-5.33-4.4-10.67-8.29-16-11.76c-5.33-3.47-10.67-6.52-16-9.25c-5.33-2.76-10.67-5.11-16-7.2
+            c-21.33-8.28-42.67-11.86-64-11.91c-21.33,0.01-42.67,3.58-64,11.86c-5.33,2.09-10.67,4.44-16,7.2c-5.33,2.73-10.67,5.78-16,9.26
+            c-5.33,3.47-10.67,7.37-16,11.78c-5.33,4.48-10.67,9.32-16,15.52v1c5.33,6.2,10.67,11.04,16,15.52c5.33,4.41,10.67,8.3,16,11.78
+            c5.33,3.48,10.67,6.53,16,9.26c5.33,2.77,10.67,5.11,16,7.2c21.33,8.27,42.67,11.84,64,11.86c21.33-0.04,42.67-3.62,64-11.91
+            c5.33-2.09,10.67-4.44,16-7.2c5.33-2.73,10.67-5.78,16-9.25c5.33-3.47,10.67-7.36,16-11.76c5.33-4.47,10.67-9.3,16-15.49v-1
+            C250.67,121.31,245.33,116.48,240,112.01z M128.06,178.93c-28.16,0-50.99-22.83-50.99-50.99c0-28.16,22.83-50.99,50.99-50.99
+            c28.16,0,50.99,22.83,50.99,50.99C179.06,156.1,156.23,178.93,128.06,178.93z"/>
+          <path d="M128,99.84c-16.59,0-30.04,13.45-30.04,30.04c0,16.59,13.45,30.04,30.04,30.04s30.04-13.45,30.04-30.04
+            C158.04,113.29,144.59,99.84,128,99.84z M140.9,120.62c-3.32,0-6.01-2.69-6.01-6.01c0-3.32,2.69-6.01,6.01-6.01
+            c3.32,0,6.01,2.69,6.01,6.01C146.9,117.93,144.22,120.62,140.9,120.62z"/>
+        </g>
+      </svg>
+      <svg id="icon_eye-closed">
+        <g>
+        	<path d="M240,112.01c-5.33-4.4-10.67-8.3-16-11.77c-5.33-3.47-10.67-6.52-16-9.25c-5.33-2.76-10.67-5.11-16-7.2
+        		c-21.33-8.28-42.67-11.86-64-11.91c-12.65,0.01-25.31,1.27-37.96,4.02L43.31,29.17c-2.34-2.34-6.14-2.34-8.48,0l-5.66,5.66
+        		c-2.34,2.34-2.34,6.14,0,8.48l38.9,38.9c-1.36,0.5-2.71,1-4.07,1.53c-5.33,2.09-10.67,4.44-16,7.2c-5.33,2.73-10.67,5.79-16,9.26
+        		c-5.33,3.48-10.67,7.37-16,11.78c-5.33,4.48-10.67,9.32-16,15.52v1c5.33,6.2,10.67,11.04,16,15.52c5.33,4.41,10.67,8.3,16,11.78
+        		c5.33,3.47,10.67,6.53,16,9.26c5.33,2.76,10.67,5.11,16,7.2c21.33,8.27,42.67,11.84,64,11.86c12.64-0.03,25.29-1.3,37.93-4.05
+        		l46.76,46.76c2.34,2.34,6.14,2.34,8.48,0l5.66-5.66c2.34-2.34,2.34-6.14,0-8.48l-38.94-38.94c1.37-0.5,2.74-1.01,4.11-1.54
+        		c5.33-2.09,10.67-4.44,16-7.2c5.33-2.73,10.67-5.78,16-9.25c5.33-3.47,10.67-7.37,16-11.77c5.33-4.47,10.67-9.3,16-15.49v-1
+        		C250.67,121.31,245.33,116.48,240,112.01z M128.06,178.93c-28.16,0-50.99-22.83-50.99-50.99c0-10.43,3.13-20.14,8.51-28.22
+        		l15.95,15.95c-2.28,4.23-3.57,9.07-3.57,14.21c0,16.6,13.45,30.04,30.04,30.04c5.14,0,9.98-1.29,14.21-3.57l14.07,14.07
+        		C148.2,175.8,138.49,178.93,128.06,178.93z M134.89,114.62c0-3.32,2.69-6.01,6.01-6.01c3.32,0,6,2.69,6,6.01c0,3.31-2.68,6-6,6
+        		C137.58,120.62,134.89,117.93,134.89,114.62z M170.45,156.31l-14.76-14.76c1.51-3.59,2.35-7.53,2.35-11.67
+        		c0-16.59-13.45-30.04-30.04-30.04c-4.14,0-8.09,0.84-11.67,2.35L99.69,85.55c8.11-5.43,17.87-8.61,28.37-8.61
+        		c28.17,0,51,22.83,51,51C179.06,138.44,175.88,148.2,170.45,156.31z"/>
+        </g>
+      </svg>
+      <svg id="icon_copyUp">
+        <g>
+          <path d="M177.48,191.5h16.94c4.15,0,6.98-4.19,5.44-8.04L133.44,17.41c-0.3-0.75-0.72-1.39-1.22-1.91H186
+            c3.31,0,6-2.69,6-6v-3c0-3.31-2.69-6-6-6H70c-3.31,0-6,2.69-6,6v3c0,3.31,2.69,6,6,6h53.78c-0.5,0.52-0.92,1.16-1.22,1.91
+            L56.14,183.46c-1.54,3.85,1.29,8.04,5.44,8.04h16.94L56.2,247.29c-1.57,3.93,1.33,8.21,5.56,8.21h132.48
+            c4.23,0,7.13-4.28,5.56-8.21L177.48,191.5z M78.29,168.46L122.56,57.8c1.96-4.91,8.92-4.91,10.88,0l44.27,110.66
+            c0.29,0.72,0.42,1.46,0.42,2.18c0,3.1-2.5,5.86-5.87,5.86c-0.25,0-0.51,0.02-0.75,0.05l-37.95-94.86c-2.01-5.01-9.11-5.01-11.12,0
+            l-37.95,94.86c-0.24-0.03-0.5-0.05-0.75-0.05C79.59,176.5,76.75,172.31,78.29,168.46z M172.08,240.5H83.92
+            c-4.24,0-7.13-4.28-5.56-8.21l44.08-110.21c2.01-5.01,9.11-5.01,11.12,0l44.08,110.21C179.21,236.22,176.32,240.5,172.08,240.5z"
+            />
+        </g>
+      </svg>
+      <svg id="icon_mergeDown">
+        <g>
+        	<path d="M199.79,40.73c1.57-3.94-1.33-8.23-5.57-8.23H61.78c-4.24,0-7.14,4.29-5.57,8.23l66.22,165.54
+        		c0.37,0.91,0.9,1.66,1.54,2.23H70c-3.31,0-6,2.69-6,6v3c0,3.31,2.69,6,6,6h116c3.31,0,6-2.69,6-6v-3c0-3.31-2.69-6-6-6h-53.97
+        		c0.64-0.57,1.17-1.32,1.54-2.23L199.79,40.73z M122.43,165.88L78.37,55.73c-1.58-3.94,1.33-8.23,5.57-8.23h88.12
+        		c4.24,0,7.15,4.29,5.57,8.23l-44.06,110.15C131.56,170.91,124.44,170.91,122.43,165.88z"/>
+        </g>
+      </svg>
+      <svg id="icon_checkall">
+        <g>
+          <path d="M186.1,67.39H94.9c-1.66,0-3,1.34-3,3v21h-22c-1.66,0-3,1.34-3,3v91.21c0,1.66,1.34,3,3,3h91.21
+            c1.66,0,3-1.34,3-3v-21h22c1.66,0,3-1.34,3-3V70.39C189.1,68.74,187.77,67.39,186.1,67.39z M149.1,170.61c0,1.66-1.34,3-3,3H84.9
+            c-1.66,0-3-1.34-3-3v-61.21c0-1.66,1.34-3,3-3h7v55.21c0,1.66,1.34,3,3,3h54.21V170.61z M149.1,149.61H109.9c-1.66,0-3-1.34-3-3
+            v-40.21h39.21c1.66,0,3,1.34,3,3V149.61z M174.1,146.61c0,1.66-1.34,3-3,3h-7V94.39c0-1.66-1.34-3-3-3H106.9v-6c0-1.66,1.34-3,3-3
+            h61.21c1.66,0,3,1.34,3,3V146.61z"/>
+        </g>
+      </svg>
+      <!-- The x is negative half the width of the dot SVG and the y is negative half the width of the circle SVG. no idea why. -->
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="-20px" y="-230px"
+      	 viewBox="0 0 256 256" id="dot1">
+      	<style type="text/css">
+      		.st0{display:none;}
+      		.st1{fill:#58595B;stroke:#FFFFFF;stroke-width:6;stroke-miterlimit:10;}
+      		.st2{fill:#58595B;stroke:#FFFFFF;stroke-width:6;}
+      		.st3{opacity:0.76;fill:#FFFFFF;}
+      	</style>
+      	<g id="Layer_2">
+      		<g>
+      			<radialGradient id="dot1_1_" cx="128.0635" cy="127.9365" r="124.3727" gradientUnits="userSpaceOnUse">
+      				<stop  offset="0.293" style="stop-color:#2B2728"/>
+      				<stop  offset="0.3661" style="stop-color:#FFFFFF"/>
+      				<stop  offset="0.4051" style="stop-color:#F5F5F5"/>
+      				<stop  offset="0.4865" style="stop-color:#D8D7D7"/>
+      				<stop  offset="1" style="stop-color:#000000"/>
+      			</radialGradient>
+      			<!-- <circle class="st1" cx="128.06" cy="127.94" r="124.37"/> -->
+      			<g>
+      				<radialGradient id="dot1_2_" cx="127.9365" cy="127.9365" r="112.8249" gradientUnits="userSpaceOnUse">
+      					<stop  offset="1.219411e-03" style="stop-color:#222222"/>
+      					<stop  offset="0.1592" style="stop-color:#5D5D5D"/>
+      					<stop  offset="0.3311" style="stop-color:#969696"/>
+      					<stop  offset="0.4902" style="stop-color:#C3C3C3"/>
+      					<stop  offset="0.6312" style="stop-color:#E4E4E4"/>
+      					<stop  offset="0.7488" style="stop-color:#F8F8F8"/>
+      					<stop  offset="0.8287" style="stop-color:#FFFFFF"/>
+      				</radialGradient>
+      				<polygon class="st2" points="193.54,127.94 237.91,92.21 181.03,89.39 195.91,34.41 148.22,65.52 127.94,12.33 107.65,65.52
+      					59.97,34.41 74.84,89.39 17.96,92.21 62.33,127.94 17.96,163.66 74.84,166.49 59.97,221.46 107.65,190.35 127.94,243.54
+      					148.22,190.35 195.91,221.46 181.03,166.49 237.91,163.66 			"/>
+      			</g>
+      			<circle class="st3" cx="128.06" cy="127.94" r="31.09"/>
+      		</g>
+      	</g>
+      </svg>
+      <svg version="1.1" id="dot2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="-20px" y="-230px"
+      	 viewBox="0 0 256 256" xml:space="preserve">
+      	<style type="text/css">
+      		.d2st0{fill:#58595B;stroke:#000;stroke-width:6;stroke-miterlimit:10;}
+      		.d2st1{fill:#58595B;stroke:#000;stroke-width:6;}
+      		.d2st2{opacity:0.66;}
+      		.d2st3{fill:#fff;}
+      	</style>
+      	<g>
+      		<radialGradient id="dot2_1_" cx="128.5246" cy="127.1334" r="124.3727" gradientUnits="userSpaceOnUse">
+      			<stop  offset="0.378" style="stop-color:#212121"/>
+      			<stop  offset="0.4754" style="stop-color:#49494B"/>
+      			<stop  offset="0.552" style="stop-color:#656567"/>
+      			<stop  offset="0.5785" style="stop-color:#777778"/>
+      			<stop  offset="0.6346" style="stop-color:#979798"/>
+      			<stop  offset="0.6817" style="stop-color:#ABABAB"/>
+      			<stop  offset="0.7137" style="stop-color:#B2B2B2"/>
+      		</radialGradient>
+      		<!-- <circle class="d2st0" cx="128.52" cy="127.13" r="124.37"/> -->
+      		<g>
+      			<radialGradient id="dot2_2_" cx="128.5" cy="127" r="123.7523" gradientUnits="userSpaceOnUse">
+      				<stop  offset="0.2848" style="stop-color:#2B2728"/>
+      				<stop  offset="0.9988" style="stop-color:#363636"/>
+      			</radialGradient>
+      			<path class="d2st1" d="M120,202c37,23,86,13,118-14c-22,13-50,19-73,5c16-1,31-7,45-16c23-16,37-39,43-65c-7,16-18,30-33,40
+      				c-7,4-15,7-23,6c33-28,40-77,23-116c6,20,3,42-8,61c-3,4-6,7-10,9c10-42-13-87-50-108c19,16,35,43,27,68c-16-40-61-61-103-59
+      				c24,4,52,14,61,39C100,30,52,39,19,66c15-9,32-14,49-13c8,1,16,2,23,9c-43,3-77,40-87,80c10-23,29-45,56-46c-33,28-40,78-23,116
+      				c-6-24-3-55,18-70c-11,42,13,86,49,108c-19-16-33-42-27-67c18,39,62,61,104,58C157,238,128,227,120,202L120,202z"/>
+      		</g>
+      		<g class="d2st2">
+      			<radialGradient id="dot2_3_" cx="128.5246" cy="127.1334" r="46.6326" gradientUnits="userSpaceOnUse">
+      				<stop  offset="0" style="stop-color:#A8A8A8"/>
+      				<stop  offset="0.0755" style="stop-color:#C3C3C3"/>
+      				<stop  offset="0.1602" style="stop-color:#D9D9D9"/>
+      				<stop  offset="0.2596" style="stop-color:#EAEAEA"/>
+      				<stop  offset="0.3818" style="stop-color:#F6F6F6"/>
+      				<stop  offset="0.5512" style="stop-color:#FDFDFD"/>
+      				<stop  offset="1" style="stop-color:#FFFFFF"/>
+      			</radialGradient>
+      			<circle class="d2st3" cx="128.52" cy="127.13" r="46.63"/>
+      		</g>
+      	</g>
+      </svg>
+      <svg id="dot3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" x="-20px" y="-230px">
+        <defs>
+          <style>
+            .cls-1 {
+              opacity: 0.66;
+            }
+            .cls-2 {
+              fill: url(#radial-gradient);
+            }
+            .cls-3 {
+              fill: #939598;
+            }
+            .cls-4 {
+              fill: none;
+              stroke: #58595b;
+              stroke-miterlimit: 10;
+            }
+          </style>
+          <radialGradient id="radial-gradient" cx="127.86" cy="121.85" r="46.63" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#a8a8a8"/>
+            <stop offset="0.08" stop-color="#c3c3c3"/>
+            <stop offset="0.16" stop-color="#d9d9d9"/>
+            <stop offset="0.26" stop-color="#eaeaea"/>
+            <stop offset="0.38" stop-color="#f6f6f6"/>
+            <stop offset="0.55" stop-color="#fdfdfd"/>
+            <stop offset="1" stop-color="#fff"/>
+          </radialGradient>
+        </defs>
+        <g class="cls-1">
+          <circle class="cls-2" cx="127.86" cy="121.85" r="46.63"/>
+        </g>
+        <g>
+          <path class="cls-3" d="M128,5.78c8.36,0-14.52,31.52-11.94,39.48s36.83-3.16,39.41,4.8S123.81,69.15,126.4,77.11s36.83-3.16,39.41,4.8S136.51,113,143.29,118s19-32.56,27.32-32.56,8.37,36,16.74,36,8.37-36,16.74-36,8.37,36,16.75,36S252.1,89.86,254.7,97.82s-34.47-4.07-41.24.85,14.39,34.05,7.62,39-27.93-24.21-34.7-19.29,14.38,34.05,7.61,39S155.33,139.07,152.74,147s36.82,8,39.41,15.92S160.5,182,163.08,190s36.83-3.17,39.42,4.79-31.66,19.09-29.07,27.06,39.66,20,32.89,24.91-6.78-34-13.55-39S164.83,232,158.06,227.1s14.39-34,7.62-39-27.94,24.2-34.71,19.28,5.41-42.4-3-42.41,3.81,37.48-3,42.4-27.93-24.2-34.71-19.28,14.39,34,7.62,39S70,202.89,63.24,207.81s-6.75,43.9-13.53,39,30.27-17,32.86-24.93-31.66-19.08-29.07-27S90.33,198,92.91,190,61.26,170.93,63.85,163s42-8,39.41-15.93S68.79,162.25,62,157.33s14.39-34.05,7.62-39-27.93,24.21-34.7,19.29,14.38-34.05,7.61-39-43.84,7.14-41.26-.83,25.5,23.55,33.86,23.55,8.38-36,16.75-36,8.37,36,16.74,36,8.37-36,16.75-36,20.54,37.48,27.32,32.56-25.11-28.08-22.53-36,36.83,3.16,39.42-4.8S97.94,58,100.53,50.07s39.95-1.29,40.28-9.65C141.52,22.38,119.61,5.79,128,5.78Z" transform="translate(-0.66 -5.28)"/>
+          <path class="cls-4" d="M128,5.78c8.36,0-14.52,31.52-11.94,39.48s36.83-3.16,39.41,4.8S123.81,69.15,126.4,77.11s36.83-3.16,39.41,4.8S136.51,113,143.29,118s19-32.56,27.32-32.56,8.37,36,16.74,36,8.37-36,16.74-36,8.37,36,16.75,36S252.1,89.86,254.7,97.82s-34.47-4.07-41.24.85,14.39,34.05,7.62,39-27.93-24.21-34.7-19.29,14.38,34.05,7.61,39S155.33,139.07,152.74,147s36.82,8,39.41,15.92S160.5,182,163.08,190s36.83-3.17,39.42,4.79-31.66,19.09-29.07,27.06,39.66,20,32.89,24.91-6.78-34-13.55-39S164.83,232,158.06,227.1s14.39-34,7.62-39-27.94,24.2-34.71,19.28,5.41-42.4-3-42.41,3.81,37.48-3,42.4-27.93-24.2-34.71-19.28,14.39,34,7.62,39S70,202.89,63.24,207.81s-6.75,43.9-13.53,39,30.27-17,32.86-24.93-31.66-19.08-29.07-27S90.33,198,92.91,190,61.26,170.93,63.85,163s42-8,39.41-15.93S68.79,162.25,62,157.33s14.39-34.05,7.62-39-27.93,24.21-34.7,19.29,14.38-34.05,7.61-39-43.84,7.14-41.26-.83,25.5,23.55,33.86,23.55,8.38-36,16.75-36,8.37,36,16.74,36,8.37-36,16.75-36,20.54,37.48,27.32,32.56-25.11-28.08-22.53-36,36.83,3.16,39.42-4.8S97.94,58,100.53,50.07s39.95-1.29,40.28-9.65C141.52,22.38,119.61,5.79,128,5.78Z" transform="translate(-0.66 -5.28)"/>
+        </g>
+      </svg>
+    </defs>
+
+  </svg>
+
+
+
+</head>
+<body>
+  <div class="top-margin"></div>
+  <div class="grid-root">
+    <div class="left-margin"></div>
+    <div class="keyring" class="paper-circle">
+      <svg id="keyringSVG" viewbox="-230 -230 460 460" height="650px">
+        <style>
+          .whiteKey {
+            fill: #eee;
+            stroke-width: 1;
+            stroke: #000;
+          }
+          .blackKey {
+            fill: #111111;
+            stroke-width: 1;
+            stroke: #000;
+          }
+          .invisiKey{
+            fill: transparent;
+            stroke: transparent;
+          }
+          .notelayer1 {
+            fill: red;
+            opacity: 1;
+          }
+          .notelayer2 {
+            fill: blue;
+            opacity: 1;
+          }
+          .notelayer3 {
+            fill: green;
+            opacity: 1;
+          }
+          .interval {
+            stroke: Limegreen;
+            stroke-width: 8;
+          }
+          .hilite {
+            fill: purple;
+          }
+          .ic1 {
+            stroke: #f54242;
+          }
+          .ic2 {
+            stroke: #f5dd42;
+          }
+          .ic3 {
+            stroke: #54f542;
+          }
+          .ic4 {
+            stroke: #42f5f5;
+          }
+          .ic5 {
+            stroke: #4266f5;
+          }
+          .ic6 {
+            stroke: #9c42f5;
+          }
+          text {
+            font-family: "le-monde-livre", serif;
+            font-size: 12pt;
+            text-anchor: middle;
+          }
+        </style>
+        <defs>
+           <filter id="shadow"  x="-50%" y="-50%" width="180%" height="190%" >
+            <feDropShadow dx="-5" dy="5" stdDeviation="8" flood-color="#333"/>
+          </filter>
+        </defs>
+        <circle cx="0" cy="0" r="150" fill="transparent" stroke="#fff" stroke-width="120" filter="url(#shadow)"/>
+      </svg>
+    </div>
+    <div class="control-card"></div>
+    <div class="controls">
+
+      <div class="meta"></div>
+      <div class="global">
+        <div class="iconel globcont" onclick="clearIt()">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          	 viewBox="0 0 256 256" width="50px">
+            <use href="#icon_trash" class="icon"/>
+          </svg>
+        </div>
+        <div class="iconel globcont play-stop" onclick="togglePlayback()" style="display:none">play-stop</div>
+        <div class="iconel globcont counterclockwise" onclick="rotate(-1)">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          	 viewBox="0 0 256 256" width="80px">
+            <use href="#icon_rotate-counter" class="icon"/>
+          </svg>
+        </div>
+        <div class="iconel globcont clockwise" onclick="rotate(1)">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          	 viewBox="0 0 256 256" width="80px">
+            <use href="#icon_rotate-clock" class="icon"/>
+          </svg>
+        </div>
+      </div>
+      <div class="checkboxes"></div>
+      <div class="positive-patch"></div>
+      <div class="negative-patch"></div>
+      <div class="checkbox-select"></div>
+      <div class="preview-select"></div>
+      <div class="context">
+        <div></div>
+        <div class="iconel contextcont show-hide" onclick="updateVisible()">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+             <g id="context-shown" display="inline">
+               <use href="#icon_eye-open" class="icon"/>
+             </g>
+             <g id="context-hidden" display="none">
+               <use href="#icon_eye-closed" class ="icon"/>
+             </g>
+          </svg>
+        </div>
+        <div class="iconel contextcont copy-up" onclick="copyUp()">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+            <use href="#icon_copyUp" class="icon"/>
+          </svg>
+        </div>
+        <div class="iconel contextcont merge-down" onclick="mergeDown()">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+            <use href="#icon_mergeDown" class="icon"/>
+          </svg>
+        </div>
+        <div></div>
+      </div>
+      <div class="iconel check-all" onclick="checkUncheckAll()">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+           viewBox="0 0 256 256" width="50px">
+          <use href="#icon_checkall" class="icon"/>
+        </svg>
+      </div>
+      <div class="inert checkbox layer3" onclick="updateLayerCheck(3,'toggle')">
+        <div class="iconel">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+             <g id="layer3-checked" display="none">
+               <use href="#icon_box-checked" class="icon"/>
+             </g>
+             <g id="layer3-unchecked" display="inline">
+               <use href="#icon_box-unchecked" class ="icon"/>
+             </g>
+          </svg>
+        </div>
+      </div>
+      <div class="inert preview layer3" onclick="updateActiveLayer(3)">
+        <div class="iconel">
+          <svg viewbox="-200 -200 400 400" width="100%">
+            <use href="#intervalGroupLayer3" />
+            <!-- <use href="#noteGroupLayer3" /> -->
+          </svg>
+        </div>
+      </div>
+      <div class="inert checkbox layer2" onclick="updateLayerCheck(2,'toggle')">
+        <div class="iconel">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+             <g id="layer2-checked" display="none">
+               <use href="#icon_box-checked" class="icon"/>
+             </g>
+             <g id="layer2-unchecked" display="inline">
+               <use href="#icon_box-unchecked" class ="icon"/>
+             </g>
+          </svg>
+        </div>
+      </div>
+      <div class="inert preview layer2" onclick="updateActiveLayer(2)">
+        <div class="iconel">
+          <svg viewbox="-200 -200 400 400" width="100%">
+            <use href="#intervalGroupLayer2" />
+            <!-- <use href="#noteGroupLayer2" /> -->
+          </svg>
+        </div>
+      </div>
+      <div class="active checkbox layer1" onclick="updateLayerCheck(1,'toggle')">
+        <div class="iconel">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+             <g id="layer1-checked" display="none">
+               <use href="#icon_box-checked" class="icon"/>
+             </g>
+             <g id="layer1-unchecked" display="inline">
+               <use href="#icon_box-unchecked" class ="icon"/>
+             </g>
+          </svg>
+        </div>
+      </div>
+      <div class="active preview layer1" onclick="updateActiveLayer(1)">
+        <div class="iconel">
+          <svg viewbox="-200 -200 400 400" width="100%">
+            <use href="#intervalGroupLayer1" />
+            <!-- <use href="#noteGroupLayer1" /> -->
+          </svg>
+        </div>
+      </div>
+      <div class="inert checkbox layer0" onclick="updateLayerCheck(0,'toggle')">
+        <div class="iconel">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 0 256 256" width="50px">
+             <g id="layer0-checked" display="none">
+               <use href="#icon_box-checked" class="icon"/>
+             </g>
+             <g id="layer0-unchecked" display="inline">
+               <use href="#icon_box-unchecked" class ="icon"/>
+             </g>
+          </svg>
+        </div>
+      </div>
+      <div class="inert preview layer0" onclick="updateActiveLayer(0)">
+        <div class="iconel">
+          <svg viewbox="-200 -200 400 400" width="100%">
+            <use href="#baseGroup">
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="right-margin"></div>
+  </div>
+<!-- partial:index.partial.html -->
+<div id="wrapper">
+
+</div>
+
+<script  src="./script10.js"></script>
+</body>
+</html>

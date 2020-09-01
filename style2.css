@@ -1,0 +1,186 @@
+body {
+  background-color: #ccc;
+}
+
+.top-margin{
+  /* border: 3px solid black; */
+  /* height: 100px; */
+}
+
+.left-margin{
+  /* border: 3px solid black; */
+}
+
+.right-margin{
+  /* border: 3px solid black; */
+}
+
+.grid-root {
+  background-color: transparent;
+  position: absolute;
+  display: grid;
+  width: 100%;
+  grid-template: 650px / [left] minmax(5px, 1000px) [keyring] 650px [controls] 300px [margin] minmax(5px, 1000px) [right];
+  grid-gap: 5px;
+}
+
+.keyring {
+  display: fixed;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  /* border: 3px solid black; */
+}
+
+#keyringSVG {
+  float: right;
+}
+
+.control-card{
+  background-color: #fff;
+  border-radius: 30px;
+  height: 650px;
+  position: relative;
+  grid-column: controls / margin;
+  grid-row: 1;
+  z-index: 1;
+  filter: drop-shadow(-10px 0 30px #333);
+
+}
+.controls {
+  display: grid;
+  grid-column: controls / margin;
+  grid-row: 1;
+  z-index: 2;
+  /* I don't know why it's assymetrical when I set the padding to 10px */
+  padding: 20px;
+  /* I don't know why changing the fractions doesn't change the sizes.  */
+  grid-template-rows: [global] 5fr [global-gap] 2fr [layer3] 7fr [layer2] 7fr [layer1] 7fr [layer0] 7fr [bottom];
+  grid-template-columns: [left] 1fr [previews] 5fr [context] 6fr [right];
+}
+
+.layer0, .layer1, .layer2, .layer3 {
+  display: grid;
+}
+
+.global {
+  display: grid;
+  /* border-left: 3px solid black;
+  border-top: 3px solid black;
+  border-right: 3px solid black; */
+  background-color: #f4c430;
+  grid-column: left / right;
+  grid-row: global / global-gap;
+  border-radius: 30px 30px 0px 00px;
+  grid-template-rows: [top] 1fr [bottom];
+  grid-template-columns: [left] 1fr [middleX1] 1fr [middleX2] 1fr [right]
+}
+
+.checkboxes {
+  background-color: #f4c430;
+  /* border-left: 3px solid black;
+  border-bottom: 3px solid black; */
+  grid-column: left / previews;
+  grid-row: global-gap / bottom;
+  border-radius: 0px 0px 0px 30px;
+}
+
+.positive-patch {
+  background-color: #f4c430;
+  grid-column: previews / context;
+  grid-row: global-gap / layer2;
+}
+
+.negative-patch {
+  background-color: #eee;
+  /* border-top: 3px solid black; */
+  grid-column: previews / bottom;
+  grid-row: global-gap / right;
+  border-radius: 30px 0 30px 0;
+}
+
+.context {
+  display: grid;
+  background-color: #555;
+  /* border-top: 3px solid #000;
+  border-right: 3px solid #000;
+  border-bottom: 3px solid #000; */
+  grid-column: context / right;
+  grid-row: layer3 / bottom;
+  border-radius: 0px 0px 30px 0px;
+  grid-template-rows: [top] 1fr [eye] 1fr [copyup] 1fr [mergedown] 1fr [margin] 1fr [bottom];
+  grid-template-columns: [left] 1fr [right];
+}
+
+
+.check-all{
+  grid-column: left;
+  grid-row: global-gap;
+}
+
+.inert.preview{
+  border: 3px solid #eee;
+  /* outline: 3px solid #333;
+  outline-offset: -6px; */
+  padding: 6px;
+  grid-column: previews;
+}
+
+.active.preview{
+  z-index: 1;
+  background-color: #555;
+  border: 3px solid #555;
+  grid-column: previews;
+  /* outline: 3px solid #333;
+  outline-offset: 0px; */
+}
+
+.active.checkbox{
+  z-index: 1;
+  background-color: #555;
+  border: 3px solid #555;
+  border-radius: 50px 0px 0px 10px;
+  grid-column: left;
+}
+
+.inert.checkbox{
+  z-index: 1;
+  background-color: transparent;
+  border: 3px solid transparent;
+  border-radius: 50px 0px 0px 10px;
+  grid-column: left;
+}
+
+.layer3{
+  grid-row: layer3;
+}
+
+.icon {
+  fill: #fff;
+}
+
+.iconel {
+  margin: auto;
+  cursor: pointer;
+  display: box;
+}
+
+.layer2{
+  grid-row: layer2;
+}
+
+.layer1{
+  grid-row: layer1;
+}
+
+.layer0{
+  grid-row: layer0;
+}
+
+.checkbox{
+  grid-column: left;
+}
+
+.preview{
+  grid-column: previews;
+}
